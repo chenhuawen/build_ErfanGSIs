@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: http://bigota.d.miui.com/20.4.27/miui_MIMIX3_20.4.27_8f7879221b_10.0.zip
+  ROM_URL: https://bigota.d.miui.com/21.4.21/miui_LAURUS_21.4.21_25f88a5ec1_10.0.zip
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -58,8 +58,8 @@ jobs:
               mkdir final
               7za a -t7z -r final/GSI.7z ./*
               du -sh final/GSI.7z
+              
        - name: Upload GSI to WeTransfer
          run: |
-              cd $GITHUB_WORKSPACE/ErfanGSIs/output
               curl -sL https://git.io/file-transfer | sh
               ./transfer wet ./final/GSI.7z
