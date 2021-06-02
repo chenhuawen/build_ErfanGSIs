@@ -63,10 +63,10 @@ jobs:
          run: |
               cd ErfanGSIs/output
               mkdir final
-              7za a -t7z -r final/GSI.7z ./*
-              du -sh final/GSI.7z
+               zip -r final/GSI.zip./*
+              du -sh final/GSI.zip
        
        - name: Upload GSI to WeTransfer
          run: |
-              curl -sL https://git.io/file-transfer | sh
-              ./transfer wet ./final/GSI.7z
+              curl -sL https://wetransfer.com/file-transfer | sh
+              ./transfer wet ./final/GSI.zip
