@@ -52,7 +52,7 @@ jobs:
          run: |
               cd ErfanGSIs
               mkdir ./output
-              wget https://github.com/xiaoxindada/actions_build_SGSI.git setupp
+              git clone https://github.com/xiaoxindada/actions_build_SGSI.git setupp
               cd setupp/bin
               sudo bash ./setup.sh
        
