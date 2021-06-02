@@ -43,7 +43,7 @@ jobs:
          run: |
               cd ErfanGSIs
               mkdir ./output
-              wget https://github.com/chenhuawen/actions_build_SGSI/main/bin/setup.sh -o setup-xiaoxin.sh
+              wget https://raw.githubusercontent.com/chenhuawen/actions_build_SGSI/main/bin/setup.sh -o setup-xiaoxin.sh
               sudo bash setup-xiaoxin.sh
        
        - name: Download Stock Rom & Generate GSI
