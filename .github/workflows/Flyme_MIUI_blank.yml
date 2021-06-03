@@ -29,37 +29,33 @@ jobs:
            
        - name: Initialization environment
          run: |
-            sudo -E apt-get -qq install git wget
+            sudo -E apt-get -qq install git openjdk-8-jdk wget
        
        - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git ErfanGSIs
+         run: git clone --recurse-submodules https://github.com/wwrrj/ErfanGSIs.git ErfanGSIs
          
        - name: Fix exit
          run: |
               sed -i 's/\|\| exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
               sed -i 's/exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
        
-       - name: Setting up ErfanGSI requirements with XiaoxinSGSI setup script
+       - name: Setting up ErfanGSI requirements
          run: |
-              cd $GITHUB_WORKSPACE/ErfanGSIs
+              cd ErfanGSIs
               mkdir ./output
-              git clone https://github.com/xiaoxindada/actions_build_SGSI.git setupp
-              cd setupp/bin
-              sudo bash ./setup.sh
-              
+              sudo bash setup.sh
+       
        - name: Download Stock Rom & Generate GSI
-         run: |
-             cd $GITHUB_WORKSPACE/ErfanGSIs
-             sudo bash ./url2GSI.sh -c -b $ROM_URL $ROM_NAME
+         run: sudo ./ErfanGSIs/url2GSI.sh -c -b $ROM_URL $ROM_NAME
        
        - name: Zip GSI  
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               mkdir final
-              7za a -t7z -r final/GSI.7z ./*
-              du -sh final/GSI.7z
-              
-       - name: Upload GSI to WeTransfer
+              zip -r final/GSI.zip ./*
+       
+       - name: Upload GSI to BitSend
          run: |
+              cd $GITHUB_WORKSPACE/ErfanGSIs/output
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet ./final/GSI.7z
+              ./transfer wet ./final/GSI.zip
