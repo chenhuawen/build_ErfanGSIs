@@ -39,11 +39,11 @@ jobs:
               sed -i 's/\|\| exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
               sed -i 's/exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
        
-       - name: Setting up ErfanGSI requirements with XiaoxinSGSI setup script
+       - name: Setting up ErfanGSI requirements with chenhuawenSGSI setup script
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs
               mkdir ./output
-              git clone https://github.com/xiaoxindada/actions_build_SGSI.git setupp
+              git clone https://github.com/chenhuawen/actions_build_SGSI.git setupp
               cd setupp/bin
               sudo bash ./setup.sh
               
@@ -54,12 +54,10 @@ jobs:
        
        - name: Zip GSI  
          run: |
-              cd $GITHUB_WORKSPACE/ErfanGSIs/output
               mkdir final
-              7za a -t7z -r final/GSI.7z ./*
-              du -sh final/GSI.7z
+              zip -r final/GSI.zip /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
+              
        - name: Upload GSI to WeTransfer
          run: |
-              cd $GITHUB_WORKSPACE/ErfanGSIs/output
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet ./final/GSI.7z
+              ./transfer bit final/GSI.zip
