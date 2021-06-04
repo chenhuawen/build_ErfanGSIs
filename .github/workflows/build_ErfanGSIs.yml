@@ -54,12 +54,11 @@ jobs:
        
        - name: Zip GSI  
          run: |
-              sudo apt install p7zip
               mkdir final
-              7-Zip -r final/GSI.7z ./*
+              p7zip -r final/GSI.7z ./*
               du -sh final/GSI.7z
               
        - name: Upload GSI to WeTransfer
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer bit final/GSI.zip
+              ./transfer bit final/GSI.7z
