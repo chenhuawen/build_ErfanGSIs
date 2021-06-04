@@ -60,6 +60,5 @@ jobs:
               
        - name: Upload GSI to WeTransfer
          run: |
-              cd $/home/runner/work/build_ErfanGSIs/build_ErfanGSIs/final/GSI.7z
               curl -sL https://git.io/file-transfer | sh 
               ./transfer wet ./final/GSI.7z
