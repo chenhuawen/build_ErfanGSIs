@@ -55,7 +55,8 @@ jobs:
        - name: Zip GSI  
          run: |
               mkdir final
-              zip -r final/GSI.zip /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
+              7z -r final/GSI.7z ./*
+              du -sh final/GSI.7z
               
        - name: Upload GSI to WeTransfer
          run: |
