@@ -54,8 +54,9 @@ jobs:
        
        - name: Zip GSI  
          run: |
+              sudo apt install p7zip
               mkdir final
-              7z -r final/GSI.7z ./*
+              7-Zip -r final/GSI.7z ./*
               du -sh final/GSI.7z
               
        - name: Upload GSI to WeTransfer
