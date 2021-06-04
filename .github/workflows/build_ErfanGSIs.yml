@@ -55,7 +55,7 @@ jobs:
        - name: Zip GSI  
          run: |
               mkdir final
-              p7zip -r final/GSI.7z ./*
+              7z-zip -r final/GSI.7z ./*
               du -sh final/GSI.7z
               
        - name: Upload GSI to WeTransfer
