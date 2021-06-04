@@ -62,4 +62,4 @@ jobs:
          run: |
               /home/runner/work/build_ErfanGSIs/build_ErfanGSIs/final/GSI.7z
               curl -sL https://git.io/file-transfer | sh 
-              ./transfer bit final/GSI.7z
+              ./transfer wet ./final/GSI.7z
