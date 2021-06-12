@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://bigota.d.miui.com/21.4.21/miui_LAURUS_21.4.21_25f88a5ec1_10.0.zip
-  ROM_NAME: MIUI
+  ROM_URL: https://coloroswebsitefs.coloros.com/coloroswebsite-coloros-com/grs_20210514101850/PCHM10_11_OTA_1770_all_mEn3qE24Oezm.ozip
+  ROM_NAME: colorOS
   TZ: Asia/Shanghai
 
 jobs:
