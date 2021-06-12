@@ -15,7 +15,7 @@ on:
     
 env:
   ROM_URL: https://fsopen.coloros.com/3/oppowww/androidrom/pchm10/PCHM10_11_OTA_0490_all_KzTHFyBgTw18.ozip
-  ROM_NAME: colorOS
+  ROM_NAME: color
   TZ: Asia/Shanghai
 
 jobs:
