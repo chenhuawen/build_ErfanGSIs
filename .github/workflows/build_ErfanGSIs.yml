@@ -51,6 +51,12 @@ jobs:
          run: |
              cd $GITHUB_WORKSPACE/ErfanGSIs
              sudo bash ./url2GSI.sh -c -b $ROM_URL $ROM_NAME
+             
+       - name: Make ColorOS SGSI
+         run: |
+           sudo python3 SGSI-build-tool/10/oppo_ozip/ozipdecrypt.py SGSI-build-tool/10/tmp/${{ steps.var.outputs.rom_name }}
+           sudo rm -rf SGSI-build-tool/10/tmp/${{ steps.var.outputs.rom_name }} SGSI-build-tool/10/fixbug/fixbug.sh
+           mv fix/ColorOS.sh SGSI-build-tool/10/fixbug/fixbug.sh      
        
        - name: Zip GSI  
          run: |
@@ -58,6 +64,7 @@ jobs:
               mkdir final
               7za a -t7z -r final/GSI.7z ./*
               du -sh final/GSI.7z
+              
        - name: Upload GSI to WeTransfer
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
