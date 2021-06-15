@@ -5,12 +5,12 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://coloroswebsitefs.coloros.com/coloroswebsite-coloros-com/grs_20201231085845/R11s_11_OTA_1190_all_Vv6yB9efD2ry.ozip
+  ROM_URL: https://coloroswebsitefs.coloros.com/coloroswebsite-coloros-com/grs_20210514101850/PCHM10_11_OTA_1770_all_mEn3qE24Oezm.ozip
   ROM_NAME: ColorOS
   BUILD_AB: true
   BUILD_AONLY: false
-  ROM_AONLY: R11s_11_Aonly.7z
-  ROM_AB: R11s_11_AB.7z
+  ROM_AONLY: ColorOS_10_Aonly.7z
+  ROM_AB: Coloros_10_AB.7z
 
 jobs:
   build:
@@ -64,7 +64,7 @@ jobs:
          
        - name: Download Stock Rom & Generate AB GSI
          if: env.BUILD_AB == 'true'
-         run: sudo ./ErfanGSIs/url2GSI.sh -b $ROM_URL $ROM_NAME
+         run: sudo ./ErfanGSIs/url2GSI.sh -b $ROM_URL $ROM_NAME --ab
 
        - name: 7z AB GSI
          if: env.BUILD_AB == 'true'
