@@ -1,16 +1,22 @@
 name: build_ErfanGSIs
 
 on:
+#  release:
+#    types: [published]
+#  push:
+#    branches:
+#      - master
+#    paths:
+#      - '.config'
+#  schedule:
+#    - cron: 0 8 * * 5
   watch:
     types: [started]
     
 env:
   ROM_URL: https://fsopen.coloros.com/3/oppowww/androidrom/pchm10/PCHM10_11_OTA_0490_all_KzTHFyBgTw18.ozip
-  ROM_NAME: colorOS
-  BUILD_AB: true
-  BUILD_AONLY: false
-  ROM_AONLY: PCHM10_11_AB_21.6.20.7z
-  ROM_AB: PCHM10_11_AB_21.6.20.7z
+  ROM_NAME: color
+  TZ: Asia/Shanghai
 
 jobs:
   build:
@@ -33,10 +39,10 @@ jobs:
        - name: Initialization environment
          run: |
             sudo -E apt-get -qq update
-            sudo -E apt-get -qq install git openjdk-8-jdk p7zip gzip
+            sudo -E apt-get -qq install git openjdk-8-jdk wget
        
        - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git
+         run: git clone --recurse-submodules https://github.com/Bugme7-Coolapk/ErfanGSIs.git
        
        - name: Setting up ErfanGSI requirements
          run: |
@@ -44,34 +50,15 @@ jobs:
               cd ErfanGSIs
               sudo bash setup.sh
        
-       - name: Download Stock Rom & Generate Aonly GSI
-         if: env.BUILD_AONLY == 'true'
-         run: sudo ./ErfanGSIs/url2GSI.sh -a $ROM_URL $ROM_NAME
+       - name: Download Stock Rom & Generate GSI
+         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME
        
-       - name: 7z Aonly GSI
-         if: env.BUILD_AONLY == 'true'
-         run: 7za a -t7z -r $ROM_AONLY ErfanGSIs/output/*
+       - name: Zip GSI  
+         run: |
+              mkdir final
+              zip -r final/GSI.zip /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
        
-       - name: Upload Aonly GSI to WeTransfer
-         if: env.BUILD_AONLY == 'true'
+       - name: Upload GSI to BitSend
          run: |
-              curl -sL https://git.io/file-transfer | sh
-              ./transfer wet $ROM_AONLY
-           
-       - name: Clear output
-         if: env.BUILD_AB == 'true'
-         run: sudo rm -rf ErfanGSIs/output/*
-         
-       - name: Download Stock Rom & Generate AB GSI
-         if: env.BUILD_AB == 'true'
-         run: sudo ./ErfanGSIs/url2GSI.sh -b $ROM_URL $ROM_NAME
-
-       - name: 7z AB GSI
-         if: env.BUILD_AB == 'true'
-         run: 7za a -t7z -r $ROM_AB ErfanGSIs/output/*
-
-       - name: Upload AB GSI to WeTransfer
-         if: env.BUILD_AB == 'true'
-         run: |
-              curl -sL https://git.io/file-transfer | sh
-              ./transfer wet $ROM_AB
+              curl -sL https://git.io/cowtransfer | sh 
+              ./cowtransfer-uploader final/GSI.zip
