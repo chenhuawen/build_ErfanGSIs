@@ -51,16 +51,16 @@ jobs:
              cd $GITHUB_WORKSPACE/ErfanGSIs
              sudo bash ./url2GSI.sh -c --$BUILD_TYPE $ROM_URL $ROM_NAME
        
-       - name: Zip GSI  
+       - name: 7Zip GSI  
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               mkdir upload
-              zip -r GSI.zip ./*
-              if [[ $(du -sb "GSI.zip" | awk '{print $1}') -gt 2097152000 ]];then
+              7za a -t7z -r GSI.7z ./*
+              if [[ $(du -sb "GSI.7z" | awk '{print $1}') -gt 2097152000 ]];then
                   echo -e "split packaging..."
-                  tar -cpzf - "GSI.zip" | split -d -b 1024m - "upload/GSI.zip"
+                  tar -cpzf - "GSI.7z" | split -d -b 1024m - "upload/GSI.7z"
               else
-                  mv GSI.zip upload/
+                  mv GSI.7z upload/
               fi
               ls "upload"                  
               
