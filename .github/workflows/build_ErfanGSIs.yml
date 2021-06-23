@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://bigota.d.miui.com/21.4.21/miui_LAURUS_21.4.21_25f88a5ec1_10.0.zip
-  ROM_NAME: MIUI
+  ROM_URL: https://ota-manual-cn.allawnfs.com/ota/21/06/17/f1dfd7e6-4ead-41ee-b867-9e3fc35379d0.ozip
+  ROM_NAME: color
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
