@@ -5,8 +5,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://coloroswebsitefs.coloros.com/coloroswebsite-coloros-com/grs_20210514101850/PCHM10_11_OTA_1770_all_mEn3qE24Oezm.ozip
-  ROM_NAME: color
+  ROM_URL: https://cdn-test-ota.blackshark.com/DLT-A0/20210507105110-darklighter-ota-signed_by_xiaomi_2bcb1105a058e6a258859cbf64cb86a1.zip
+  ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
 jobs:
