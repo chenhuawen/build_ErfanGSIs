@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://bigota.d.miui.com/V12.0.5.0.QECCNXM/equuleus_images_V12.0.5.0.QECCNXM_20210326.0000.00_10.0_cn_7d78525b39.tgz
+  ROM_URL: https://bigota.d.miui.com/V12.0.7.0.QFCMIXM/pyxis_global_images_V12.0.7.0.QFCMIXM_20210508.0000.00_10.0_global_99e1642a01.tgz
   ROM_NAME: MIUI
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
