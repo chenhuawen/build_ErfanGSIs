@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://fsopen.coloros.com/3/oppowww/androidrom/pclm10/PCLM10_11_OTA_0120_all_Kstg2TogR7P7.ozip
+  ROM_URL: https://coloroswebsitefs.coloros.com/coloroswebsite-coloros-com/grs_20201231085845/R11s_11_OTA_1190_all_Vv6yB9efD2ry.ozip
   ROM_NAME: colorOS
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
