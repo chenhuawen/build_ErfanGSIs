@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://bigota.d.miui.com/21.4.21/miui_LAURUS_21.4.21_25f88a5ec1_10.0.zip
-  ROM_NAME: MIUI
+  ROM_URL: http://download.h2os.com/OnePlus6T/MP/OnePlus6THydrogen_34.K.51_OTA_051_all_2105262300_30f382738dfe4ae0.zip
+  ROM_NAME: H2OS
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
