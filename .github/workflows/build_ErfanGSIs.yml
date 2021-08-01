@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://download.meizu.com/Firmware/Flyme/16s_Pro/9.21.6.29/cn_beta/20210629094954/75dc2ffe/update.zip
-  ROM_NAME: Flyme
+  ROM_URL: https://wlansysuptxdl.vivo.com.cn/upgrade/recovery/recoveryFiles/202103300115108e616da422c6714f29be1a64338fb69d.zip
+  ROM_NAME: OriginOS
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
