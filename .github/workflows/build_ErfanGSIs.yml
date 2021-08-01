@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: http://download.h2os.com/OnePlus6T/MP/OnePlus6THydrogen_34.K.51_OTA_051_all_2105262300_30f382738dfe4ae0.zip
-  ROM_NAME: OxygenOS
+  ROM_URL: https://download.meizu.com/Firmware/Flyme/16s_Pro/9.21.6.29/cn_beta/20210629094954/75dc2ffe/update.zip
+  ROM_NAME: Flyme
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
@@ -33,7 +33,7 @@ jobs:
             sudo -E apt-get -qq install git wget
        
        - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/jczhl/ErfanGSIs.git ErfanGSIs
+         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git ErfanGSIs
          
        - name: Fix exit
          run: |
