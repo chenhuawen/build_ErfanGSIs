@@ -35,31 +35,34 @@ jobs:
        - name: Clone ErfanGSI Source Code
          run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git ErfanGSIs
          
-       - name: Fix exit
+       - name: Setting up ErfanGSI requirements with XiaoxinSGSI setup script
          run: |
-              sed -i 's/\|\| exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
-              sed -i 's/exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
-       
-       - name: Setting up ErfanGSI requirements
-         run: |
-              sudo chmod -R 777 $GITHUB_WORKSPACE ErfanGSIs
-              cd ErfanGSIs
-              mkdir final
-              sudo bash setup.sh
-       
+              cd $GITHUB_WORKSPACE/ErfanGSIs
+              mkdir ./output
+              sudo bash ./setup.sh
+              
        - name: Download Stock Rom & Generate GSI
-         run: | 
+         run: |
              cd $GITHUB_WORKSPACE/ErfanGSIs
              sudo bash ./url2GSI.sh -c --$BUILD_TYPE $ROM_URL $ROM_NAME
        
        - name: Zip GSI  
          run: |
-              7za a -t7z -r GSI.7z ./*
-              cd $GITHUB_WORKSPACE/home/runner/work/build_ErfanGSIs/build_ErfanGSIs/ErfanGSIs/output
-              
-       
-       - name: Upload GSI to WeTransfer
-         run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
-              curl -sL https://git.io/file-transfer | sh
-              ./transfer wet ./final/GSI.7z
+              mkdir upload
+              zip -r GSI.zip ./*
+              if [[ $(du -sb "GSI.zip" | awk '{print $1}') -gt 2097152000 ]];then
+                  echo -e "split packaging..."
+                  tar -cpzf - "GSI.zip" | split -d -b 1024m - "upload/GSI.zip"
+              else
+                  mv GSI.zip upload/
+              fi
+              ls "upload"                  
+              
+       - name: Upload SGSI to action-release...
+         uses: ncipollo/release-action@v1.8.6
+         with:
+           artifacts: ${{ github.workspace }}/ErfanGSIs/output/upload/*
+           name: ErfanGSIs-${{ env.ROM_NAME }}-${{ env.BUILD_TYPE }}
+           tag: ErfanGSIs-${{ env.ROM_NAME }}-${{ env.BUILD_TYPE }}-${{ github.run_number }}
+           token: ${{ secrets.GITHUB_TOKEN }}
