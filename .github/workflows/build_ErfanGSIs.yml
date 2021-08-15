@@ -40,11 +40,11 @@ jobs:
               sed -i 's/\|\| exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
               sed -i 's/exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
        
-       - name: Setting up ErfanGSI requirements with XiaoxinSGSI setup script
+       - name: Setting up ErfanGSI requirements
          run: |
-              cd $GITHUB_WORKSPACE/ErfanGSIs
-              mkdir ./output
-              sudo bash ./setup.sh
+              sudo chmod -R 777 $GITHUB_WORKSPACE ErfanGSIs
+              cd ErfanGSIs
+              sudo bash setup.sh
        
        - name: Download Stock Rom & Generate GSI
          run: | 
@@ -55,10 +55,10 @@ jobs:
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               mkdir final
-              zip -r final/GSI.zip ./*
+               7za a -t7z -r GSI.7z ./*
        
        - name: Upload GSI to WeTransfer
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet ./final/GSI.zip
+              ./transfer wet ./final/GSI.7z
