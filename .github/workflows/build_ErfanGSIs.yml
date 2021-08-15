@@ -42,7 +42,7 @@ jobs:
             sudo -E apt-get -qq install git openjdk-8-jdk wget
        
        - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/maimaiguanfan/ErfanGSIs.git
+         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git
        
        - name: Setting up ErfanGSI requirements
          run: |
@@ -51,17 +51,14 @@ jobs:
               sudo bash setup.sh
        
        - name: Download Stock Rom & Generate GSI
-         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME --ab
+         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME -a
        
-       - name: 7Zip GSI  
+       - name: Zip GSI  
          run: |
               mkdir final
-              7za a -t7z -r /GSI.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/                 
-              
-       - name: Upload SGSI to action-release...
-         uses: ncipollo/release-action@v1.8.6
-         with:
-           artifacts: ${{ github.workspace }}/ErfanGSIs/output/upload/*
-           name: ErfanGSIs-${{ env.ROM_NAME }}-${{ env.BUILD_TYPE }}
-           tag: ErfanGSIs-${{ env.ROM_NAME }}-${{ env.BUILD_TYPE }}-${{ github.run_number }}
-           token: ${{ secrets.GITHUB_TOKEN }}
+              zip -r final/GSI.zip /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
+       
+       - name: Upload GSI to BitSend
+         run: |
+              curl -sL https://git.io/file-transfer | sh 
+              ./transfer wss GSI.zip
