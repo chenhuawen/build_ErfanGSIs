@@ -16,6 +16,7 @@ on:
 env:
   ROM_URL: https://bigota.d.miui.com/V12.0.1.0.PDICNXM/miui_HM6Pro_V12.0.1.0.PDICNXM_81d8bc0ad2_9.0.zip
   ROM_NAME: MIUI
+  BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
 jobs:
@@ -41,7 +42,7 @@ jobs:
               sudo bash setup.sh
               
        - name: Download Stock Rom & Generate GSI
-         run: sudo bash ./ErfanGSIs/url2GSI.sh -c --$ $ROM_URL $ROM_NAME--ab
+         run: sudo bash ./ErfanGSIs/url2GSI.sh -c --$BUILD_TYPE $ROM_URL $ROM_NAME
        
        - name: Zip GSI  
          run: |
