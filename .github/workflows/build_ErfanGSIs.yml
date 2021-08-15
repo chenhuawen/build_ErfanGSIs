@@ -16,7 +16,6 @@ on:
 env:
   ROM_URL: https://bigota.d.miui.com/V12.0.1.0.PDICNXM/miui_HM6Pro_V12.0.1.0.PDICNXM_81d8bc0ad2_9.0.zip
   ROM_NAME: MIUI
-  BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
 jobs:
@@ -33,20 +32,20 @@ jobs:
             sudo -E apt-get -qq install git wget
        
        - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git ErfanGSIs
+         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git
          
-       - name: Setting up ErfanGSI requirements with XiaoxinSGSI setup script
+       - name: Setting up ErfanGSI requirements
          run: |
-              cd $GITHUB_WORKSPACE/ErfanGSIs
-              mkdir ./output
-              sudo bash ./setup.sh
+              sudo chmod -R 777 ErfanGSIs
+              cd ErfanGSIs
+              sudo bash setup.sh
               
        - name: Download Stock Rom & Generate GSI
-         run: sudo bash ./ErfanGSIs/url2GSI.sh -c --$BUILD_TYPE $ROM_URL $ROM_NAME
+         run: sudo bash ./ErfanGSIs/url2GSI.sh -c --$ $ROM_URL $ROM_NAME--ab
        
        - name: Zip GSI  
          run: |
-              cd $GITHUB_WORKSPACE/ErfanGSIs/output
+              cd /home/runner/work/build_ErfanGSIs/build_ErfanGSIs/ErfanGSIs/output
               mkdir upload
               zip -r GSI.zip ./*
               if [[ $(du -sb "GSI.zip" | awk '{print $1}') -gt 2097152000 ]];then
