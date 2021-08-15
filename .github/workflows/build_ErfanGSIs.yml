@@ -44,6 +44,7 @@ jobs:
          run: |
               sudo chmod -R 777 $GITHUB_WORKSPACE ErfanGSIs
               cd ErfanGSIs
+              mkdir final
               sudo bash setup.sh
        
        - name: Download Stock Rom & Generate GSI
@@ -53,9 +54,9 @@ jobs:
        
        - name: Zip GSI  
          run: |
-              cd $GITHUB_WORKSPACE/ErfanGSIs/output
-              mkdir final
-               7za a -t7z -r GSI.7z ./*
+              7za a -t7z -r GSI.7z ./*
+              cd $GITHUB_WORKSPACE/home/runner/work/build_ErfanGSIs/build_ErfanGSIs/ErfanGSIs/output
+              
        
        - name: Upload GSI to WeTransfer
          run: |
