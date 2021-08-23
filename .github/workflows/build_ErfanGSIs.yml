@@ -57,7 +57,7 @@ jobs:
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
               mkdir upload
               7za a -t7z -r GSI.7z./*
-              if [[ $(du -sb "GSI.zip" | awk '{print $1}') -gt 2097152000 ]];then
+              if [[ $(du -sb "GSI.7z" | awk '{print $1}') -gt 2097152000 ]];then
                   echo -e "split packaging..."
                   tar -cpzf - "GSI.7z" | split -d -b 1024m - "upload/GSI.7z"
               else
