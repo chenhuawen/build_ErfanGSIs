@@ -1,4 +1,5 @@
-name: AC-2
+  
+name: build_ErfanGSIs
 
 on:
 #  release:
@@ -14,8 +15,9 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://bigota.d.miui.com/V12.0.1.0.PDICNXM/miui_HM6Pro_V12.0.1.0.PDICNXM_81d8bc0ad2_9.0.zip
+  ROM_URL: https://bigota.d.miui.com/V12.5.3.0.QFGCNXM/miui_LAVENDER_V12.5.3.0.QFGCNXM_964faa8ebc_10.0.zip
   ROM_NAME: MIUI
+  BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
 jobs:
@@ -26,39 +28,47 @@ jobs:
     steps:
        - name: Checkout
          uses: actions/checkout@master
-       
-       - name: Clean Up
-         run: |
-           docker rmi `docker images -q`
-           sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
-           sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
-           sudo -E apt-get update
-           sudo -E apt-get -y autoremove --purge
-           sudo -E apt-get clean 
            
        - name: Initialization environment
          run: |
-            sudo -E apt-get -qq update
-            sudo -E apt-get -qq install git openjdk-8-jdk wget
+            sudo -E apt-get -qq install git wget
        
        - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git
-       
-       - name: Setting up ErfanGSI requirements
+         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git ErfanGSIs
+         
+       - name: Fix exit
          run: |
-              sudo chmod -R 777 ErfanGSIs
-              cd ErfanGSIs
-              sudo bash setup.sh
+              sed -i 's/\|\| exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
+              sed -i 's/exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
        
+       - name: Setting up ErfanGSI requirements with XiaoxinSGSI setup script
+         run: |
+              cd $GITHUB_WORKSPACE/ErfanGSIs
+              mkdir ./output
+              sudo bash ./setup.sh
+              
        - name: Download Stock Rom & Generate GSI
-         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME
-       
-       - name: Zip GSI  
          run: |
-              mkdir final
-              zip -r final/GSI.zip /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
+             cd $GITHUB_WORKSPACE/ErfanGSIs
+             sudo bash ./url2GSI.sh -c --$BUILD_TYPE $ROM_URL $ROM_NAME
        
-       - name: Upload GSI to BitSend
+       - name: 7Zip GSI  
          run: |
-              curl -sL https://git.io/file-transfer | sh
-              ./transfer gof final/GSI.zip
+              cd $GITHUB_WORKSPACE/ErfanGSIs/output
+              mkdir upload
+              7za a -t7z -r GSI.7z./*
+              if [[ $(du -sb "GSI.zip" | awk '{print $1}') -gt 2097152000 ]];then
+                  echo -e "split packaging..."
+                  tar -cpzf - "GSI.7z" | split -d -b 1024m - "upload/GSI.7z"
+              else
+                  mv GSI.7z upload/
+              fi
+              ls "upload"                  
+              
+       - name: Upload SGSI to action-release...
+         uses: ncipollo/release-action@v1.8.6
+         with:
+           artifacts: ${{ github.workspace }}/ErfanGSIs/output/upload/*
+           name: ErfanGSIs-${{ env.ROM_NAME }}-${{ env.BUILD_TYPE }}
+           tag: ErfanGSIs-${{ env.ROM_NAME }}-${{ env.BUILD_TYPE }}-${{ github.run_number }}
+           token: ${{ secrets.GITHUB_TOKEN }}
