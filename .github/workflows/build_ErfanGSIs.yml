@@ -41,7 +41,7 @@ jobs:
               sed -i 's/\|\| exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
               sed -i 's/exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
        
-       - name: Setting up ErfanGSI requirements with huawenSGSI setup script
+       - name: Setting up ErfanGSI requirements with xiaoxindadaGSI setup script
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs
               mkdir ./output
@@ -68,7 +68,7 @@ jobs:
        - name: Upload SGSI to action-release...
          uses: ncipollo/release-action@v1.8.6
          with:
-           artifacts: ${{ github.workspace }}/huawen--ErfanGSIs/output/upload/*
+           artifacts: ${{ github.workspace }}/ErfanGSIs/output/upload/*
            name: ErfanGSIs-${{ env.ROM_NAME }}-${{ env.BUILD_TYPE }}
            tag: ErfanGSIs-${{ env.ROM_NAME }}-${{ env.BUILD_TYPE }}-${{ github.run_number }}
            token: ${{ secrets.GITHUB_TOKEN }}
