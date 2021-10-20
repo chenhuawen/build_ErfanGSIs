@@ -34,27 +34,27 @@ jobs:
             sudo -E apt-get -qq install git wget
        
        - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git ErfanGSIs
+         run: git clone --recurse-submodules https://github.com/chenhuawen/huawen--ErfanGSIs.git huawen--ErfanGSIs
          
        - name: Fix exit
          run: |
-              sed -i 's/\|\| exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
-              sed -i 's/exit 1//g' $GITHUB_WORKSPACE/ErfanGSIs/url2GSI.sh
+              sed -i 's/\|\| exit 1//g' $GITHUB_WORKSPACE/huawen--ErfanGSIs/url2GSI.sh
+              sed -i 's/exit 1//g' $GITHUB_WORKSPACE/huawen--ErfanGSIs/url2GSI.sh
        
-       - name: Setting up ErfanGSI requirements with XiaoxinSGSI setup script
+       - name: Setting up ErfanGSI requirements with huawenSGSI setup script
          run: |
-              cd $GITHUB_WORKSPACE/ErfanGSIs
+              cd $GITHUB_WORKSPACE/huawen--ErfanGSIs
               mkdir ./output
               sudo bash ./setup.sh
               
        - name: Download Stock Rom & Generate GSI
          run: |
-             cd $GITHUB_WORKSPACE/ErfanGSIs
+             cd $GITHUB_WORKSPACE/huawen--ErfanGSIs
              sudo bash ./url2GSI.sh -c --$BUILD_TYPE $ROM_URL $ROM_NAME
        
        - name: 7Zip GSI  
          run: |
-              cd $GITHUB_WORKSPACE/ErfanGSIs/output
+              cd $GITHUB_WORKSPACE/huawen--ErfanGSIs/output
               mkdir upload
               7za a -t7z -r GSI.7z ./*
               if [[ $(du -sb "GSI.7z" | awk '{print $1}') -gt 2097152000 ]];then
@@ -68,7 +68,7 @@ jobs:
        - name: Upload SGSI to action-release...
          uses: ncipollo/release-action@v1.8.6
          with:
-           artifacts: ${{ github.workspace }}/ErfanGSIs/output/upload/*
+           artifacts: ${{ github.workspace }}/huawen--ErfanGSIs/output/upload/*
            name: ErfanGSIs-${{ env.ROM_NAME }}-${{ env.BUILD_TYPE }}
            tag: ErfanGSIs-${{ env.ROM_NAME }}-${{ env.BUILD_TYPE }}-${{ github.run_number }}
            token: ${{ secrets.GITHUB_TOKEN }}
