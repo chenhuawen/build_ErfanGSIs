@@ -1,4 +1,4 @@
-  name: build_ErfanGSIs
+name: build_ErfanGSIs
 
 on:
 #  release:
@@ -51,7 +51,6 @@ jobs:
              cd $GITHUB_WORKSPACE/ErfanGSIs
              sudo bash ./url2GSI.sh -c --$BUILD_TYPE $ROM_URL $ROM_NAME
 
-       
        - name: 7Zip GSI  
          run: |
               cd $GITHUB_WORKSPACE/ErfanGSIs/output
