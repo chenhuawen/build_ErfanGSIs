@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://cdn-test-ota.blackshark.com/DLT-A0/20210507105110-darklighter-ota-signed_by_xiaomi_2bcb1105a058e6a258859cbf64cb86a1.zip
-  ROM_NAME: Generic
+  ROM_URL: https://down.ws28.cn/793k8ts/6/qs/6qs6793k8ts?cdn_sign=1635424028-72-0-e80cb30b965837ee1906ac619a09de55&exp=9600&response-content-disposition=attachment%3B%20filename%3D%22R11s_11_OTA_1190_all_Vv6yB9efD2ry.zip%22%3B%20filename%2A%3Dutf-8%27%27R11s_11_OTA_1190_all_Vv6yB9efD2ry.zip
+  ROM_NAME: colorOS
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
