@@ -15,7 +15,7 @@ on:
     
 env:
   ROM_URL: https://sysupwrdl.vivo.com.cn/upgrade/official/officialFiles/PD1824_A_8.10.36-update-full_1634718654.zip
-  ROM_NAME: ColorOS
+  ROM_NAME: Generic
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
