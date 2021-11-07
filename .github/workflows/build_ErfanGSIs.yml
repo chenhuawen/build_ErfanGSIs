@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://sysupwrdl.vivo.com.cn/upgrade/official/officialFiles/PD1913_A_1.16.19-update-full_1634718596.zip
+  ROM_URL: http://sysupwrdl.vivo.com.cn/upgrade/official/officialFiles/PD2066B_A_1.6.19-update-full_1618824048.zip
   ROM_NAME: Generic
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
