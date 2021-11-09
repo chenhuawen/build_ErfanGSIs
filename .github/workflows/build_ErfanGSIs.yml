@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://down.wss1.cn/tooyq40/6/tu/6tu4tooyq40?cdn_sign=1636348525-33-0-1381eebfbdf94b1bcbb122e98813eaa5&exp=9600&response-content-disposition=attachment%3B%20filename%3D%22update.zip%22%3B%20filename%2A%3Dutf-8%27%27update.zip
+  ROM_URL: http://sysupwrdl.vivo.com.cn/upgrade/official/officialFiles/PD1981_A_1.12.0-update-full_1598237886.zip
   ROM_NAME: Generic
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
