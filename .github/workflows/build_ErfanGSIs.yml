@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: http://sysupwrdl.vivo.com.cn/upgrade/official/officialFiles/PD1824_A_1.19.4-update-full_1571901865.zip
+  ROM_URL: https://sysupwrdl.vivo.com.cn/upgrade/official/officialFiles/PD2092_A_1.3.6-update-full_1631686190.zip
   ROM_NAME: Generic
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
