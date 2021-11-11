@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://download.meizu.com/Firmware/Flyme/16T/9.21.9.22/cn_beta/20210922095615/f8c27a57/update.zip
-  ROM_NAME: Flyme
+  ROM_URL: https://down.wss1.cn/i8sl9rk/6/un/6un4i8sl9rk?cdn_sign=1636592370-46-0-b63a99e04f04cddc6254c161946c7d7e&exp=9600&response-content-disposition=attachment%3B%20filename%3D%22Z5S_201207_ZUI%2012.0.237_FB8495.zip%22%3B%20filename%2A%3Dutf-8%27%27Z5S_201207_ZUI%252012.0.237_FB8495.zip
+  ROM_NAME: Generic
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
