@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://down.wss1.cn/1mstafi/6/wt/6wtu1mstafi?cdn_sign=1637254695-10-0-cef2f277eb3cf6a482b9a2b9258ce21b&exp=9600&response-content-disposition=attachment%3B%20filename%3D%22PAFM00_11_OTA_3260_all_t3Y7m7zoFCcK.zip%22%3B%20filename%2A%3Dutf-8%27%27PAFM00_11_OTA_3260_all_t3Y7m7zoFCcK.zip
+  ROM_URL: https://down.wss1.cn/f7mn99c/6/wx/6wxdf7mn99c?cdn_sign=1637284485-75-0-d87668b733aa290618737aa6cd3bc4b1&exp=9600&response-content-disposition=attachment%3B%20filename%3D%22RMX1931_11_OTA_1340_all_2QCxQYdkxpql.zip%22%3B%20filename%2A%3Dutf-8%27%27RMX1931_11_OTA_1340_all_2QCxQYdkxpql.zip
   ROM_NAME: Generic
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
