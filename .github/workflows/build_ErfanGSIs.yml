@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: http://romdownload.nubia.com/%E7%BA%A2%E9%AD%943S/V5.16/NX629J-V1S-update.zip
+  ROM_URL: http://romdownload.nubia.com/%E5%8A%AA%E6%AF%94%E4%BA%9APlay/V2.22/NX651J-update.zip
   ROM_NAME: Generic
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
