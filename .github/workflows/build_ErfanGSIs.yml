@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://down.wss1.cn/f7mn99c/6/wx/6wxdf7mn99c?cdn_sign=1637471449-54-0-6422ad8bccaf0c6718421fea1e6b4a44&exp=9600&response-content-disposition=attachment%3B%20filename%3D%22RMX1931_11_OTA_1340_all_2QCxQYdkxpql.zip%22%3B%20filename%2A%3Dutf-8%27%27RMX1931_11_OTA_1340_all_2QCxQYdkxpql.zip
+  ROM_URL: http://romdownload.nubia.com/%E7%BA%A2%E9%AD%943S/V5.16/NX629J-V1S-update.zip
   ROM_NAME: Generic
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
