@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: http://romdownload.nubia.com/%E5%8A%AA%E6%AF%94%E4%BA%9APlay/V2.22/NX651J-update.zip
-  ROM_NAME: Generic
+  ROM_URL: https://bigota.d.miui.com/21.4.21/miui_LAURUS_21.4.21_25f88a5ec1_10.0.zip
+  ROM_NAME: MIUI
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
