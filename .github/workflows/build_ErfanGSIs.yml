@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://down.wss1.cn/60u0fs0/7/dj/7dje60u0fs0?cdn_sign=1642311780-15-0-ae6d85d200244b9ba664a9ef41b022f1&exp=9600&response-content-disposition=attachment%3B%20filename%3D%22PCLM10_11_OTA_0120_all_Kstg2TogR7P7.zip%22%3B%20filename%2A%3Dutf-8%27%27PCLM10_11_OTA_0120_all_Kstg2TogR7P7.zip
-  ROM_NAME: ColorOS
+  ROM_URL: https://hugeota.d.miui.com/V12.5.5.0.QFMCNXM/miui_LAURUS_V12.5.5.0.QFMCNXM_eb006da5b1_10.0.zip
+  ROM_NAME: miui
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
