@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: http://sysupwrdl.vivo.com.cn/upgrade/official/officialFiles/PD1916_A_7.7.0-update-full_1593998872.zip
-  ROM_NAME: Generic
+  ROM_URL: https://bigota.d.miui.com/V12.0.4.0.QFMCNXM/miui_LAURUS_V12.0.4.0.QFMCNXM_74cce5492a_10.0.zip
+  ROM_NAME: MIUI
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
