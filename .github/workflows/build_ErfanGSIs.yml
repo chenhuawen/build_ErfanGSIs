@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://cdn-test-ota.blackshark.com/DLT-A0/20210507105110-darklighter-ota-signed_by_xiaomi_2bcb1105a058e6a258859cbf64cb86a1.zip
-  ROM_NAME: Generic
+  ROM_URL: https://bigota.d.miui.com/V12.5.3.0.QFGCNXM/miui_LAVENDER_V12.5.3.0.QFGCNXM_964faa8ebc_10.0.zip
+  ROM_NAME: MIUI
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
