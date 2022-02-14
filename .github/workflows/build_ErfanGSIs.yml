@@ -15,7 +15,7 @@ on:
     
 env:
   ROM_URL: https://coloroswebsitefs.coloros.com/coloroswebsite-coloros-com/grs_20211203164919/PAFM00_11_OTA_3270_all_ZsB7LzXH0Ct8.ozip
-  ROM_NAME: MIUI
+  ROM_NAME: Generic
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
