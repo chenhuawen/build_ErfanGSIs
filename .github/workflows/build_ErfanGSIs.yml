@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://down.wss1.cn/wcnxxb4/7/lv/7lvrwcnxxb4?cdn_sign=1647692099-95-0-5df40e06df4a0adc0e48934a45f5bbfd&exp=9600&response-content-disposition=attachment%3B%20filename%3D%22PAFM00_11_OTA_3270_all_ZsB7LzXH0Ct8.zip%22%3B%20filename%2A%3Dutf-8%27%27PAFM00_11_OTA_3270_all_ZsB7LzXH0Ct8.zip
+  ROM_URL: https://sysupwrdl.vivo.com.cn/upgrade/official/officialFiles/PD2066_A_1.8.13-update-full_1643096265.zip
   ROM_NAME: Generic
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
