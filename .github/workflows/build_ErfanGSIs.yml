@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: http://sysupwrdl.vivo.com.cn/upgrade/official/officialFiles/PD2143_A_1.5.2-update-full_1625127723.zip
-  ROM_NAME: Generic
+  ROM_URL: https://sysupwrdl.vivo.com.cn/upgrade/official/officialFiles/PD2164_A_1.6.18-update-full_1646918079.zip
+  ROM_NAME: MIUI
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
