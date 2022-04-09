@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://down.wss1.cn/t0sndnx/8/17/817kt0sndnx?cdn_sign=1649476613-30-0-525b60299fb86941309957bc06cca415&exp=14400&response-content-disposition=attachment%3B%20filename%3D%22RMX2051_11_OTA_0230_all_px51W12RRRlP.zip%22%3B%20filename%2A%3Dutf-8%27%27RMX2051_11_OTA_0230_all_px51W12RRRlP.zip
+  ROM_URL: https://down.wss1.cn/082srv2/7/ky/7ky5082srv2?cdn_sign=1649484557-14-0-e3ea4e2fe7971d0064e616aa787b6492&exp=14400&response-content-disposition=attachment%3B%20filename%3D%22RMX1931_11_OTA_1340_all_2QCxQYdkxpql.zip%22%3B%20filename%2A%3Dutf-8%27%27RMX1931_11_OTA_1340_all_2QCxQYdkxpql.zip
   ROM_NAME: MIUI
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
