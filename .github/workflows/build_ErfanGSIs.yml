@@ -15,7 +15,7 @@ on:
     
 env:
   ROM_URL: https://bigota.d.miui.com/V13.0.2.0.SJVCNXM/miui_VANGOGH_V13.0.2.0.SJVCNXM_382f34ec17_12.0.zip
-  ROM_NAME: Generic
+  ROM_NAME: MIUI
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
