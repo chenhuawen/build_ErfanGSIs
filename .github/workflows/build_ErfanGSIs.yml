@@ -14,14 +14,14 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://bigota.d.miui.com/V13.0.2.0.SJVCNXM/miui_VANGOGH_V13.0.2.0.SJVCNXM_382f34ec17_12.0.zip
+  ROM_URL: https://hugeota.d.miui.com/V13.0.5.0.SLDCNXM/miui_PSYCHE_V13.0.5.0.SLDCNXM_0b5427be43_12.0.zip
   ROM_NAME: MIUI
   BUILD_TYPE: ab
   TZ: Asia/Shanghai
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
@@ -30,7 +30,7 @@ jobs:
            
        - name: Initialization environment
          run: |
-            sudo -E apt-get -qq install git wget
+            sudo -E apt-get -qq install git wget curl g++ 
        
        - name: Clone ErfanGSI Source Code
          run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git ErfanGSIs
